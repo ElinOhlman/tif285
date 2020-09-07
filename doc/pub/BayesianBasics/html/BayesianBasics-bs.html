@@ -156,8 +156,15 @@ MathJax.Hub.Config({
 <center><b>Department of Physics, Chalmers University of Technology, Sweden</b></center>
 <br>
 <p>
-<center><h4>Sep 12, 2019</h4></center> <!-- date -->
+<center><h4>Sep 7, 2020</h4></center> <!-- date -->
 <br>
+<p>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center><p class="caption">Figure 1:  XKCD: <a href="https://xkcd.com/1132/" target="_self">Frequentists vs. Bayesians (1132)</a>. </p></center>
+<p><img src="https://imgs.xkcd.com/comics/frequentists_vs_bayesians.png" align="bottom" width=600></p>
+</center>
+
 <p>
 <!-- potential-jumbotron-button -->
 </div> <!-- end jumbotron -->
@@ -280,7 +287,7 @@ Adapted from D.S. Sivia <button type="button" class="btn btn-primary btn-xs" rel
 <p>
 <!-- !split -->
 <blockquote>
-    Faced with the realization that the frequency definition of probability theory did not permit most real-life scientific problems to be addressed, a new subject was invented &#8212; statistics! To estimate the mass of Saturn, for example, one has to relate the mass to the data through some function called the statistic; since the data are subject to &#8216;random&#8217; noise, the statistic becomes the random variable to which the rules of probability the- ory can be applied. But now the question arises: How should we choose the statistic? The frequentist approach does not yield a natural way of doing this and has, therefore, led to the development of several alternative schools of orthodox or conventional statis- tics. The masters, such as Fisher, Neyman and Pearson, provided a variety of different principles, which has merely resulted in a plethora of tests and procedures without any clear underlying rationale. This lack of unifying principles is, perhaps, at the heart of the shortcomings of the cook-book approach to statistics that students are often taught even today.
+    Faced with the realization that the frequency definition of probability theory did not permit most real-life scientific problems to be addressed, a new subject was invented &#8212; statistics! To estimate the mass of Saturn, for example, one has to relate the mass to the data through some function called the statistic; since the data are subject to &#8216;random&#8217; noise, the statistic becomes the random variable to which the rules of probability theory can be applied. But now the question arises: How should we choose the statistic? The frequentist approach does not yield a natural way of doing this and has, therefore, led to the development of several alternative schools of orthodox or conventional statistics. The masters, such as Fisher, Neyman and Pearson, provided a variety of different principles, which has merely resulted in a plethora of tests and procedures without any clear underlying rationale. This lack of unifying principles is, perhaps, at the heart of the shortcomings of the cook-book approach to statistics that students are often taught even today.
 </blockquote>
 
 
@@ -405,13 +412,13 @@ of \( h \) with respect to \( p \) as follows
 
 $$
 \begin{equation}
-\langle h \rangle_X \equiv \int\! h(x)p(x)\,dx
+\mathbb{E}_p[h] = \langle h \rangle_p \equiv \int\! h(x)p(x)\,dx
 \label{eq:expectation_value_of_h_wrt_p}
 \end{equation}
 $$
 
 Whenever the PDF is known implicitly, like in this case, we will drop
-the index \( X \) for clarity.  
+the index \( p \) for clarity.  
 A particularly useful class of special expectation values are the
 <em>moments</em>. The \( n \)-th moment of the PDF \( p \) is defined as
 follows
@@ -469,7 +476,7 @@ The values of the <b>mode</b>, <b>mean</b>, <b>median</b> can all be used as poi
 <p>
 <center>  <!-- FIGURE -->
 <hr class="figure">
-<center><p class="caption">Figure 1:  The 68%/95% probability regions are shown in dark/light shading. When applied to Bayesian posteriors, these are known as credible intervals or DoBs (degree of belief intervals) or Bayesian confidence intervals. The horizontal extent on the \( x \)-axis translates into the vertical extent of the error bar or error band for \( x \). </p></center>
+<center><p class="caption">Figure 2:  The 68/95 percent probability regions are shown in dark/light shading. When applied to Bayesian posteriors, these are known as credible intervals or DoBs (degree of belief intervals) or Bayesian confidence intervals. The horizontal extent on the \( x \)-axis translates into the vertical extent of the error bar or error band for \( x \). </p></center>
 <p><img src="fig/pdfs.png" align="bottom" width=800></p>
 </center>
 
@@ -780,7 +787,7 @@ We perform the setup of this Bayesian framework on the computer.
 </pre></div>
 <p>
 <!-- !split -->
-The next step is to confront this setup with the simulated data. To get a feel for the result, it is instructive to see how the posterior pdf evolves as we obtain more and more data pertaining to the coin. The results of such an analyses is shown in Fig. <a href="#fig:coinflipping">2</a>.
+The next step is to confront this setup with the simulated data. To get a feel for the result, it is instructive to see how the posterior pdf evolves as we obtain more and more data pertaining to the coin. The results of such an analyses is shown in Fig. <a href="#fig:coinflipping">3</a>.
 
 <p>
 
@@ -802,7 +809,7 @@ axs_vec[<span style="color: #666666">0</span>]<span style="color: #666666">.</sp
 <p>
 <center> <!-- figure label: --> <div id="fig:coinflipping"></div> <!-- FIGURE -->
 <hr class="figure">
-<center><p class="caption">Figure 2:  The evolution of the posterior pdf for the bias-weighting of a coin, as the number of data available increases. The figure on the top left-hand corner of each panel shows the number of data included in the analysis.  <!-- caption label: fig:coinflipping --> </p></center>
+<center><p class="caption">Figure 3:  The evolution of the posterior pdf for the bias-weighting of a coin, as the number of data available increases. The figure on the top left-hand corner of each panel shows the number of data included in the analysis.  <!-- caption label: fig:coinflipping --> </p></center>
 <p><img src="fig/coinflipping_fig_1.png" align="bottom" width=500></p>
 </center>
 
@@ -816,7 +823,7 @@ The first flip is obviously tails. At this point we have no evidence that the co
 
 <p>
 <!-- !split -->
-The remainder of Fig. <a href="#fig:coinflipping">2</a> shows how the posterior pdf evolves as the number of data analysed becomes larger and larger. We see that the position of the maximum moves around, but that the amount by which it does so decreases with the increasing number of observations. The width of the posterior pdf also becomes narrower with more data, indicating that we are becoming increasingly confident in our estimate of the bias-weighting. For the coin in this example, the best estimate of \( p_H \) eventually converges to 0.6, which, of course, was the value chosen to simulate the flips.
+The remainder of Fig. <a href="#fig:coinflipping">3</a> shows how the posterior pdf evolves as the number of data analysed becomes larger and larger. We see that the position of the maximum moves around, but that the amount by which it does so decreases with the increasing number of observations. The width of the posterior pdf also becomes narrower with more data, indicating that we are becoming increasingly confident in our estimate of the bias-weighting. For the coin in this example, the best estimate of \( p_H \) eventually converges to 0.6, which, of course, was the value chosen to simulate the flips.
 
 <p>
 <!-- !split -->
@@ -840,7 +847,7 @@ The remainder of Fig. <a href="#fig:coinflipping">2</a> shows how the posterior 
 
 <ul>
 <li> Possible point estimates for the value of \( p_H \) could be the maximum (mode), mean, or median of this posterior pdf.</li> 
-<li> Bayesian p% degree-of-belief (DoB) intervals correspond to ranges in which we would give a p% odds of finding the true value for \( p_H \) based on the data and the information that we have.</li>
+<li> Bayesian p-precent degree-of-belief (DoB) intervals correspond to ranges in which we would give a p-percent odds of finding the true value for \( p_H \) based on the data and the information that we have.</li>
 <li> The frequentist point estimate is \( p_H^* = \frac{H}{N} \). It actually corresponds to one of the point estimates from the Bayesian analysis for a specific prior? Which point estimate and which prior?</li>
 </ul>
 
@@ -861,7 +868,7 @@ The remainder of Fig. <a href="#fig:coinflipping">2</a> shows how the posterior 
 
 
 <center style="font-size:80%">
-<!-- copyright --> &copy; 2018-2019, Christian Forss&#233;n. Released under CC Attribution-NonCommercial 4.0 license
+<!-- copyright --> &copy; 2018-2020, Christian Forss&#233;n. Released under CC Attribution-NonCommercial 4.0 license
 </center>
 
 
